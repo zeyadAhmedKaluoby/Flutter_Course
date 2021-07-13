@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sharedpreferences/settings.dart';
 
 void main() {
@@ -23,9 +24,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+SharedPreferences ? preferences;
+int size= 16;
+
+void sharedPref()
+async {  preferences = await SharedPreferences.getInstance();
+         setState(() {
+           size=preferences!.getInt('size')!;
+         });
+
+}
+@override
+  void initState() {
+    // TODO: implement initState
+  }
 
   @override
   Widget build(BuildContext context) {
+    sharedPref();
 
     return Scaffold(
 appBar: AppBar(title: Text('shared preferences'),actions: [
@@ -34,8 +50,9 @@ appBar: AppBar(title: Text('shared preferences'),actions: [
   }, icon: Icon(Icons.settings))
 ],),
       body: Center(
-
+       child: Text('hello to shared preferences',style: TextStyle(fontSize:size.toDouble(),)
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    )
     );
   }
 }

@@ -10,17 +10,26 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   int? color = Colors.white.value;
+  int ?size = 16;
   SharedPreferences ?preferences;
   void saveData (int c) async
   {
+
     preferences = await SharedPreferences.getInstance() ;
     preferences!. setInt('color', c);
+  }
+  void saveSize (int s)
+  async {
+    preferences = await SharedPreferences.getInstance() ;
+    preferences!. setInt('size', s);
   }
   void getData()async
   {
     preferences = await SharedPreferences.getInstance() ;
     setState(() {
       color =  preferences!. getInt('color')?? Colors.white.value;
+      size =  preferences!. getInt('size')?? size;
+
     });
 
   }
@@ -70,8 +79,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 });
                 saveData(color!);
 
-              })
+              }),
+          DropdownButton(value: size,onChanged: (int ?val){
+            setState(() {
+              size=val;
+            });
+            saveSize(size!);
+          },items: [
+            DropdownMenuItem(child: Text('16'),value: 16,onTap: (){},),
+
+            DropdownMenuItem(child: Text('20'),value: 20,onTap: (){
+
+            },),
+            DropdownMenuItem(child: Text('40'),value: 50,onTap: (){},),
+            DropdownMenuItem(child: Text('60'),value: 60,onTap: (){},),
+
+
+
+          ])
         ],
+
       ),
     );
   }
