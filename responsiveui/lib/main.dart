@@ -1,31 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:responsiveui/responsive_reuse.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      home: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            print(constraints);
-            if (constraints.maxWidth > 500) {
-              return Container(
+      home: Appp()
+    );
+  }
+}
+class Appp extends StatelessWidget {
+  const Appp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+   // Size size = MediaQuery.of(context).size;
+    return  SafeArea(
+
+        child:// size.width>=500? Scaffold(appBar:AppBar()):Scaffold()
+         ResposiveReuse(web: Container(
                 color: Colors.blue,
                 child: RichText( text: TextSpan(text: 'rotate'),),
-              );
-            } else {
-              return Container(
+              ),mobile:Container(
                 color: Colors.yellow,
                 child: RichText(text: TextSpan(text: 'not rotate')),
-              );
-            }
-          },
+              )
+
+
         ),
-      ),
     );
   }
 }
