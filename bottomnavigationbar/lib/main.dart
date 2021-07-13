@@ -1,5 +1,11 @@
 import 'package:bottomnavigationbar/Normal/normal.dart';
+import 'package:bottomnavigationbar/Circle/circle.dart';
+import 'package:bottomnavigationbar/Circle/circle.dart';
+
+
 import 'package:flutter/material.dart';
+
+import 'Convex/convex.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,7 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.push(context,MaterialPageRoute (builder:(context)=> NormalNav()));
             }, child: Text('Normal')),
             ElevatedButton(onPressed:(){}, child: Text('Circle')),
-            ElevatedButton(onPressed:(){}, child: Text('Convex')),
+            ElevatedButton(onPressed:(){
+              Navigator.push(context,MaterialPageRoute (builder:(context)=> ConvexNav()));
+
+            }, child: Text('Convex')),
             ElevatedButton(onPressed:(){}, child: Text('Curved')),
             ElevatedButton(onPressed:(){}, child: Text('Floating')),
             ElevatedButton(onPressed:(){}, child: Text('SpinCircle')),

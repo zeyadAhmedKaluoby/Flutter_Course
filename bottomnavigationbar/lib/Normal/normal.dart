@@ -5,6 +5,8 @@ import 'package:bottomnavigationbar/Screens/message.dart';
 import 'package:bottomnavigationbar/Screens/profile.dart';
 import 'package:flutter/material.dart';
 
+import '../constats.dart';
+
 class NormalNav extends StatefulWidget {
   const NormalNav({Key? key}) : super(key: key);
 
@@ -13,12 +15,7 @@ class NormalNav extends StatefulWidget {
 }
 
 class _NormalNavState extends State<NormalNav> {
-  List<Widget> _widgetOptions=[
-    HomeScreen(),
-    DiscoverScreen(),
-    AddScreen(),
-    MessageScreen(),ProfileScreen()
-  ];
+
   int _currenIndex = 0;
   void _changeItem(int value)
   {
@@ -30,7 +27,7 @@ class _NormalNavState extends State<NormalNav> {
   Widget build(BuildContext context) {
     print('normal');
     return Scaffold(
-      body: _widgetOptions.elementAt(_currenIndex),
+      body: widgetOptions.elementAt(_currenIndex),
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon:Icon(Icons.home),label: 'Home'),
         BottomNavigationBarItem(icon:Icon(Icons.map),label: 'Discovery'),
