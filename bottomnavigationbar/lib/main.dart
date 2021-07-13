@@ -1,3 +1,4 @@
+import 'package:bottomnavigationbar/Floating/floating.dart';
 import 'package:bottomnavigationbar/Normal/normal.dart';
 import 'package:bottomnavigationbar/Circle/circle.dart';
 import 'package:bottomnavigationbar/Circle/circle.dart';
@@ -47,7 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
             }, child: Text('Convex')),
             ElevatedButton(onPressed:(){}, child: Text('Curved')),
-            ElevatedButton(onPressed:(){}, child: Text('Floating')),
+            ElevatedButton(onPressed:(){              Navigator.push(context,MaterialPageRoute (builder:(context)=> FloatingNav()));
+            }, child: Text('Floating')),
             ElevatedButton(onPressed:(){}, child: Text('SpinCircle')),
 
           ],),

@@ -2,7 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../constats.dart';
-
+//feih convex.badge({index}:'rkam notification msln') w elbadge leih properties
 class ConvexNav extends StatefulWidget {
   const ConvexNav({Key? key}) : super(key: key);
 
