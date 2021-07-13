@@ -1,3 +1,4 @@
+import 'package:bottomnavigationbar/Normal/normal.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,7 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Center(
           child: Column(children: [
-            ElevatedButton(onPressed:(){}, child: Text('Normal')),
+            ElevatedButton(onPressed:(){
+              Navigator.push(context,MaterialPageRoute (builder:(context)=> NormalNav()));
+            }, child: Text('Normal')),
             ElevatedButton(onPressed:(){}, child: Text('Circle')),
             ElevatedButton(onPressed:(){}, child: Text('Convex')),
             ElevatedButton(onPressed:(){}, child: Text('Curved')),
