@@ -24,7 +24,7 @@ class _PostProviderScreen extends State<PostProviderScreen> {
       body: Container(
           child: postMdl.loading
               ? CircularProgressIndicator()
-              : ListTile(
+              :/* ListTile(
                   title: Text(
                     postMdl.post.title ?? "",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -33,7 +33,20 @@ class _PostProviderScreen extends State<PostProviderScreen> {
                     postMdl.post.body ?? '',
                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),
                   ),
-                )),
-    );
+                )),*/
+    ListView.builder(itemBuilder: (context,index){
+      return ListTile(
+      title: Text(
+      postMdl.posts[index]['title'] ?? "",
+    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+    ),
+    subtitle: Text(
+    postMdl.posts[index]['body'] ?? '',
+    style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),
+    ),
+      );
+    },itemCount: postMdl.posts.length,)
+
+    ));
   }
 }
